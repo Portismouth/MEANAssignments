@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function fib () {
+            var F = 0;
+            var n = 1;
+            function nacci () {
+                console.log(n);
+                var temp = F
+                F = n;
+                n = temp+n;
+            }
+            return nacci;
+        }
+        var counter = fib();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

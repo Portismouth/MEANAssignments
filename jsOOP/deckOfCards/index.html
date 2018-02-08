@@ -1,0 +1,263 @@
+<HTML>
+
+<HEAD>
+    <META NAME="description" CONTENT="A full deck of Playing Card Icons">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+    <META NAME="keywords" CONTENT="Playing Cards, deck of cards, deck, cards, icons, images">
+    <TITLE>Playing Cards</TITLE>
+    <script>
+        class Card {
+                constructor(stringVal, suit, val) {
+                    this.stringVal = stringVal;
+                    this.suit = this.stringVal + suit;
+                    this.val = this.suit +".png";
+                    this.actualVal = val;
+                }
+            }
+            class Deck {
+                constructor() {
+                    this.suits = ["c", "d", "h", "s"];
+                    this.stringVals = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"];
+                    this.cards = [];
+                    this.suits.forEach(suit => {
+                        var val = 1;
+                        this.stringVals.forEach(stringVal => {
+                            this.cards.push(new Card(suit, stringVal, val));
+                            val += 1;
+                        });
+                    });
+                }
+
+                showDeck() {
+                    console.log(this.cards);
+                }
+            }
+            var newDeck = new Deck();
+            newDeck.showDeck();
+            // newDeck.forEach(element => {
+                
+            // });
+    </script>
+</HEAD>
+
+<BODY BGCOLOR=#006633 TEXT=#e1ffd7 LINK=#FFFFFF VLINK=#FFFFFF>
+    <CENTER>
+        <TABLE BORDER=0 CELLSPACING=10 CELLPADDING=10>
+            <TR>
+                <TD>
+                    <IMG SRC="img/b1pt.png">
+                    <BR>
+                    <IMG SRC="img/b1fh.png">
+                    <BR>
+                    <IMG SRC="img/b1pb.png">
+                    <BR>
+                </TD>
+                <TD>
+                    <IMG SRC="img/b1pl.png">
+                    <IMG SRC="img/b1fv.png">
+                    <IMG SRC="img/b1pr.png">
+                </TD>
+                <TD>
+                    <IMG SRC="img/jb.png">
+                </TD>
+                <TD VALIGN=CENTER>
+                    <STRONG>Playing Cards</STRONG>
+                </TD>
+                <TD>
+                    <IMG SRC="img/jr.png">
+                </TD>
+                <TD>
+                    <IMG SRC="img/b2pl.png">
+                    <IMG SRC="img/b2fv.png">
+                    <IMG SRC="img/b2pr.png">
+                </TD>
+                <TD>
+                    <IMG SRC="img/b2pt.png">
+                    <BR>
+                    <IMG SRC="img/b2fh.png">
+                    <BR>
+                    <IMG SRC="img/b2pb.png">
+                    <BR>
+                </TD>
+            </TR>
+            <TR></TR>
+        </TABLE>
+        <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=0 id="full-deck">
+            <TR>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c1.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c2.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c3.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c4.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c5.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c6.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c7.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c8.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c9.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/c10.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/cj.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/cq.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/ck.png">
+                </TD>
+            </TR>
+            <TR>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h1.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h2.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h3.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h4.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h5.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h6.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h7.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h8.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h9.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/h10.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/hj.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/hq.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/hk.png">
+                </TD>
+            </TR>
+            <TR>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s1.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s2.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s3.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s4.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s5.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s6.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s7.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s8.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s9.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/s10.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/sj.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/sq.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/sk.png">
+                </TD>
+            </TR>
+            <TR>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d1.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d2.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d3.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d4.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d5.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d6.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d7.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d8.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d9.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/d10.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/dj.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/dq.png">
+                </TD>
+                <TD ALIGN=CENTER>
+                    <IMG SRC="img/dk.png">
+                </TD>
+            </TR>
+        </TABLE>
+        <TABLE BORDER=0 CELLSPACING=10>
+            <TR>
+                <TD ALIGN=CENTER>
+                    <FONT SIZE=2>
+                        <BR> These images were created using
+                        <A HREF="http://www.mindworkshop.com/alchemy/alchemy.html">GIFCon</A>.
+                    </FONT>
+                </TD>
+            </TR>
+        </TABLE>
+</BODY>
+
+</HTML>

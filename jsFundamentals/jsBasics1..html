@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // var x = [];
+        // x.push("coding");
+        // x.push("dojo");
+        // x.push("rocks");
+        // console.log(x);
+        // x.pop();
+        // console.log(x);
+
+        // const y = [];
+        // y.push(88);
+        // console.log(y);
+
+        // let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+        // names.forEach(element => {
+        //     console.log(element.length);
+        // });
+        // names.forEach(element => {
+        //     if(element.length === 5){
+        //         console.log(element)
+        //     }  
+        // });
+
+        // let z = [9, 10, 6, 5, -1, 20, 13, 2];
+        // z.forEach(element => {
+        //     console.log(element);
+        // });
+        // for(var i = 0; i < z.length-2; i++){
+        //     console.log(z[i]);
+        // }
+
+        // function yell(string){
+        //     console.log(string.toUpperCase());
+        // }
+        // yell("hello");
+
+        function magicMultiply(x, y){
+            if(x < 1 && y<1){
+                console.log("All inputs 0");
+            } else if(typeof(x) == 'object'){
+                let result = [];
+                x.forEach(element => {
+                    result.push(element*y)
+                });
+                console.log(result);
+            } else if(typeof(y) == "string"){
+                console.log("Error: Can not multiply by string")
+            } else if(typeof (x) == "string"){
+                let result = "";
+                for(var i = 1; i <= y; i++){
+                    result+=x;
+                }
+                console.log(result);
+            } else {
+                console.log(x*y);
+            }
+        }
+        magicMultiply(5,2);
+        magicMultiply(0,0);
+        magicMultiply([1, 2, 3], 2);
+        magicMultiply(7, "three");
+        magicMultiply("Brendo", 4);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

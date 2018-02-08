@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        let students = [
+            { name: 'Remy', cohort: 'Jan' },
+            { name: 'Genevieve', cohort: 'March' },
+            { name: 'Chuck', cohort: 'Jan' },
+            { name: 'Osmund', cohort: 'June' },
+            { name: 'Nikki', cohort: 'June' },
+            { name: 'Boris', cohort: 'June' }
+        ];
+        
+        for(var i = 0; i < students.length-1; i++){
+            console.log("Name: "+ students[i]["name"] + ", " + "Cohort: " + students[i]["name"]);
+        }
+
+        let users = {
+            employees: [
+                { 'first_name': 'Miguel', 'last_name': 'Jones' },
+                { 'first_name': 'Ernie', 'last_name': 'Bertson' },
+                { 'first_name': 'Nora', 'last_name': 'Lu' },
+                { 'first_name': 'Sally', 'last_name': 'Barkyoumb' }
+            ],
+            managers: [
+                { 'first_name': 'Lillian', 'last_name': 'Chambers' },
+                { 'first_name': 'Gordon', 'last_name': 'Poe' }
+            ]
+        };
+
+        for(var group in users){
+            console.log(group.toUpperCase());
+            let count = 1;
+            users[group].forEach(element => {
+                console.log(count 
+                    + " - " 
+                    + element.last_name.toUpperCase() 
+                    + ", " 
+                    + element.first_name.toUpperCase() 
+                    + " - " 
+                    + (element.last_name.length + element.first_name.length)
+                );
+                count++;
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

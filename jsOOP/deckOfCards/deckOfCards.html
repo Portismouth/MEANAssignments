@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="scripts/card.js"></script>
+<script src="scripts/deck.js"></script>
+<script src="scripts/player.js"></script>
+<script>
+        var newDeck = new Deck();
+        newDeck.showDeck();
+        console.log(newDeck)
+        newDeck = new ShuffledDeck();
+        newDeck.shuffle();
+        newDeck.showDeck();
+        // newDeck.reset();
+        newDeck.showDeck();
+        newDeck.deal();
+        newDeck.showDeck();
+
+        const player1 = new Player("Ozzy");
+
+        player1.takeCard(newDeck, 5);
+        player1.read();
+        player1.discard();
+        player1.read();
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

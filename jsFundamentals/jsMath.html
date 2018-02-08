@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // function zeroNeg(arr){
+        //     let exists = true;
+        //     arr.forEach(element => {
+        //        if(element < 0){
+        //            exists = false;
+        //        }
+        //     });
+        //     console.log(exists);
+        // };
+        // zeroNeg([1, 6, 9, 7, 8]);      
+        // zeroNeg([1, 6, -9, 7, 8]);
+
+        function zeroNeg1(arr){
+            var statement = true; 
+            for(var i = 0; i < arr.length - 1; i++){
+                if(arr[i] < 0){
+                    statement = false;
+                }
+            }
+            console.log(statement);
+        }
+        zeroNeg1([1, 6, 9, 7, 8]);
+        zeroNeg1([1, 6, -9, 7, 8]);
+
+        // function isEven(num){
+        //     if(num % 2 == 0){
+        //         return true;
+        //     }
+        //     return false;
+        // };
+
+        // function howManyEven(arr){
+        //     let count = 0;
+        //     arr.forEach(element => {
+        //         if(isEven(element)){
+        //             count++;
+        //         }
+        //     });
+        //     console.log(count);
+        // };
+        // howManyEven([2,4,6,8,9]);
+
+        // function createArray(n){
+        //     let array = [];
+        //     for(var i = 1; i <= n; i++){
+        //         var num = Math.floor((Math.random() * 10))
+        //         array.push(num);
+        //     }
+        //     return array;
+        // };
+        // createArray(5);
+
+        // function randomChoice(arr){
+        //     let rnd = Math.floor((Math.random() * arr.length))
+        //     console.log(arr);
+        //     console.log("Random index is "+rnd);
+        //     console.log("The value of the random index is "+arr[rnd]);
+        // }
+
+        // randomChoice(createArray(10));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function ninjaConstructor(name){
+            const self = this; 
+            const privateSpeed = 3;
+            const privateStrength = 3;
+
+            this.name = name;
+            this.health = 100;
+
+            this.sayName = function () {
+                console.log("My ninja name is " + this.name + ".")
+            }
+
+            this.showStats = function () {
+                console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + privateSpeed + ", Strength: " + privateStrength);
+            }
+
+            this.drinkSake = function() {
+                console.log(this.name + " just take a swig of sake.")
+                this.health += 10;
+            }
+        }
+
+        const Ozzy = new ninjaConstructor("Ozzy");
+        const Bill = new ninjaConstructor("Bill");
+        const Jim = new ninjaConstructor("Bill");
+        Ozzy.sayName();
+        Ozzy.showStats();
+        Ozzy.drinkSake();
+        Ozzy.showStats();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

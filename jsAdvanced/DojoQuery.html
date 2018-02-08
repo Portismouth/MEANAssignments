@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <button id="some-button">Some Button</button>
+    <script>
+        function $Dojo(id) {
+            var $Dojo = {
+                click : function (callback){
+                    var DOMobject = document.getElementById(id);
+                    DOMobject.addEventListener("click", callback);
+                    return $Dojo.click;
+                },
+                hover : function (callback){
+                    var DOMobject = document.getElementById(id);
+                    DOMobject.addEventListener("mouseover", callback);
+                    DOMobject.addEventListener("mouseout", function () {console.log("hover out")})
+                    return $Dojo.hover;
+                }
+            }
+            return $Dojo;
+        }
+
+        $Dojo("some-button").click(function () {console.log("click")});
+
+        $Dojo("some-button").hover(function () {console.log("hover")});
+    </script>
+</body>
+</html>

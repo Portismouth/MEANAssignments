@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function ninjaConstructor(name) {
+            const self = this;
+            const privateSpeed = 3;
+            const privateStrength = 3;
+
+            this.name = name;
+            this.health = 100;
+
+            this.sayName = function () {
+                console.log("My ninja name is " + this.name + ".")
+            }
+
+            this.showStats = function () {
+                console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + privateSpeed + ", Strength: " + privateStrength);
+            }
+
+            this.drinkSake = function () {
+                console.log(this.name + " just take a swig of sake.")
+                this.health += 10;
+            }
+
+            this.punch = function (ninja){
+                if(ninja instanceof ninjaConstructor == false){
+                    console.log("You can only punch ninjas!");
+                } else {
+                    console.log(ninja.name + " was punched by " + this.name + " and lost 5 Health.");
+                    ninja.health -= 5;
+                }
+                
+            }
+
+            this.kick = function (ninja) {
+                if(ninja instanceof ninjaConstructor == false){
+                    console.log("You can only punch ninjas!");
+                } else {
+                    console.log(ninja.name + " was kicked by " + this.name + " and lost 15 Health.");
+                    ninja.health -= 15;
+                }
+            }
+        }
+
+        const Ozzy = new ninjaConstructor("Ozzy");
+        const Bill = new ninjaConstructor("Bill");
+        const Jim = new ninjaConstructor("Bill");
+        console.log(Ozzy)
+        Ozzy.sayName();
+        Ozzy.showStats();
+        Ozzy.drinkSake();
+        Ozzy.showStats();
+        Ozzy.punch(Bill);
+        Bill.showStats();
+
+        const cat = {cat: "cat"}
+
+        Ozzy.kick(Bill);
+        Bill.showStats();
+        Bill.kick(cat);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

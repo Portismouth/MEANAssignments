@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var _ = {
+                map: function (list, iteratee) {
+                    let result = [];
+                    list.forEach(element => {
+                        result.push(iteratee(element));
+                    });
+                    return result;
+                },
+                reduce: function (list, iteratee, memo) {
+                    memo = memo || 0;
+                    for(let i in list){
+                        memo = iteratee(memo, list[i]);
+                    }
+                    return memo;
+                },
+                find: function (list, predicate) {
+                    let result;
+                    list.forEach(element => {
+                        if(predicate(element) == true){
+                            result = element;
+                            return;
+                        }
+                    });
+                    return result;
+                },
+                filter: function (list, predicate) {
+                    let result = [];
+                    list.forEach(element => {
+                        if(predicate(element) == true){
+                            result.push(element);
+                        }
+                    })
+                    return result;
+                },
+                reject: function (list, predicate) {
+                    let result = [];
+                    list.forEach(element => {
+                        if (predicate(element) !== true) {
+                            result.push(element);
+                        }
+                    })
+                    return result;
+                }
+            }
+
+            var map = _.map([1,2,3,4,5], function (num) { return num * 2;})
+            console.log(map);
+            var reduce = _.reduce([1,2,3,4,5], function (memo, num) { return memo + num })
+            console.log(reduce)
+            var find = _.find([1,2,3,4,5], function (num) {return num % 2 === 0})
+            console.log(find)
+            var filter = _.filter([1,2,3,4,5], function (num) {return num % 2 !== 0})
+            console.log(filter)
+            var reject = _.reject([1, 2, 3, 4, 5], function (num) { return num % 2 !== 0 })
+            console.log(reject)
+            console.log(_)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

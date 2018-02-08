@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        class Ninja {
+            constructor (name) {
+                this.speed = 3;
+                this.strength = 3;
+                this.name = name;
+                this.health = 100;
+
+                this.sayName = function () {
+                    console.log("My ninja name is " + this.name + ".")
+                }
+
+                this.showStats = function () {
+                    console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + this.speed + ", Strength: " + this.strength);
+                }
+
+                this.drinkSake = function () {
+                    console.log(this.name + " just take a swig of sake.")
+                    this.health += 10;
+                }
+
+                this.punch = function (ninja) {
+                    if (ninja instanceof Ninja != true) {
+                        console.log("You can only punch ninjas!");
+                    } else {
+                        console.log(ninja.name + " was punched by " + this.name + " and lost 5 Health.");
+                        ninja.health -= 5;
+                    }
+
+                }
+
+                this.kick = function (ninja) {
+                    if (ninja instanceof Ninja != true) {
+                        console.log("You can only kick ninjas!");
+                    } else {
+                        console.log(ninja.name + " was kicked by " + this.name + " and lost 45 Health.");
+                        let damage = this.strength *= 15;
+                        console.log(damage)
+                        ninja.health -= damage;
+                    }
+                }
+            }
+        }
+
+        class Sensei extends Ninja {
+            constructor (name, wisdom){
+                super(name);
+                this.health = 200;
+                this.speed = 10;
+                this.strength = 10;
+                this.wisdom = 10; 
+            }
+
+            speakWisdom () {
+                this.drinkSake();
+                console.log("What one programmer can do in one month, two programmers can do in two months.")
+            }
+            
+        };
+
+        const Ozzy = new Ninja("Ozzy");
+        const Bill = new Ninja("Bill");
+        const Jim = new Ninja("Jim");
+        console.log(Ozzy)
+        Ozzy.sayName();
+        Ozzy.showStats();
+        Ozzy.drinkSake();
+        Ozzy.showStats();
+        Ozzy.punch(Bill);
+        Bill.showStats();
+
+        const cat = { cat: "cat" }
+
+        Ozzy.kick(Bill);
+        Bill.showStats();
+        Bill.kick(cat);
+
+        const SenseiOzzy = new Sensei("Ozzy"); 
+        console.log(SenseiOzzy)
+
+        SenseiOzzy.showStats();
+        SenseiOzzy.speakWisdom();
+        SenseiOzzy.showStats();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
