@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Epic Button Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1>The button has been pushed <span id="count"></span> time(s)</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h6>Push the button to update the count</h6>
+            <br>
+        </div>
+        <div class="row justify-content-center">
+            <button id="counter" type="button" class="btn btn-primary btn-lg">Push the epic button</button>
+        </div>
+        <div class="float-right">
+            <button id="reset" type="button" class="btn btn-danger">Reset count</button>
+        </div>
+    </div>
+</body>
+</html>

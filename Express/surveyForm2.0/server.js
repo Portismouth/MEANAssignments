@@ -19,17 +19,7 @@ app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
     res.render("index");
 });
-// app.post('/', function (req, res) {
-//     // console.log(req.session.result.name)
-//     result = {
-//         name: req.body.name,
-//         location: req.body.location,
-//         language: req.body.language,
-//         comment: req.body.comment,
-//     }
-//     console.log(result)
-//     res.render("index", result)
-// });
+
 var server = app.listen(8000, function () {
     console.log("listening on port 8000");
 });
@@ -39,6 +29,7 @@ io.sockets.on('connection', function (socket) {
     console.log("Client/socket id is: ", socket.id);
     // all the server socket code goes in here
     socket.on("button_clicked", function (data) {
+        
         socket.emit('server_response', 
             { name: data.data.name,
                 location: data.data.location,
