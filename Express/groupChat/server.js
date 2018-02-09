@@ -25,7 +25,7 @@ var io = require('socket.io').listen(server);
 var messages = [];
 
 io.sockets.on('connection', function (socket) {
-    // socket.emit("showMessages", messages);
+    socket.emit("showMessages", messages);
     console.log("Client/socket is connected!");
     console.log("Client/socket id is: ", socket.id);
     let user;
@@ -39,7 +39,6 @@ io.sockets.on('connection', function (socket) {
         io.emit("showMessages", messages)
     });
     socket.on("disconnect", function () {
-        console.log("someone left")
         io.emit("userDisconnect", user)
     });
 })

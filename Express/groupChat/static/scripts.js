@@ -16,10 +16,12 @@ $(document).ready(function () {
     $("#join").click( function () {
         user = $("#name").val()
         socket.emit("newUser", user);
+        $("#name").val("");
     })
     $("#send").click( function () {
         let message = $("#message").val();
         socket.emit("newMessage", { user: user, message: message})
+        $("#message").val("")
     });
     socket.on("joined", function (data) {
         console.log(data);
