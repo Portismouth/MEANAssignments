@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+</head>
+<body>
+    <h1>Message Board</h1>
+    <hr>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+            <span style="color: red;">
+                <%= errors[x].message %>
+            </span>
+        <% } %>
+    <% } %>
+    <form action="/message" method="POST">
+        Name: <input type="text" name="name">
+        <br>
+        Message: <br>
+        <textarea name="text" cols="30" rows="10"></textarea>
+        <input type="submit">
+    </form>
+    <h4>All Messages</h4>
+    <hr>
+    <% for(let i = 0; i < allMessages.length; i++){%>
+        <h3>Name: <%=allMessages[i].name%></h3>
+        <h4>Message: <%=allMessages[i].text%></h4>
+        <h4>Comments</h4>
+        <h2>Add a comment</h2>
+        <hr>
+        <form action="/comment" method="POST">
+            <input type="hidden" name="messageId" value="<%=allMessages[i]._id%>">
+            Name:<input type="text" name="name">
+            <br> 
+            Comment:<br>
+            <textarea name="text" cols="30" rows="5"></textarea>
+            <input type="submit">
+        </form>
+
+        <% for(let j = 0; j < allMessages[i].comments.length; j++){%>
+            <h3>Name:<%=allMessages[i].comments[j].name%></h3>
+            <h4>Text:<%=allMessages[i].comments[j].text%></h4>
+        <%}%>
+    <%}%>
+</body>
+</html>
