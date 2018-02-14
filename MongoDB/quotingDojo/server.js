@@ -5,14 +5,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var path = require('path');
 // Require Mongoose
 var mongoose = require("mongoose");
+//Connect to MongoDB
+mongoose.connect('mongodb://localhost/basic_mongoose');
 // Setting our Static Folder Directory
 app.use(express.static(path.join(__dirname, './static')));
 // Setting our Views Folder Directory
 app.set('views', path.join(__dirname, './views'));
 // Setting our View Engine set to EJS
 app.set('view engine', 'ejs');
-//Connect to MongoDB
-mongoose.connect('mongodb://localhost/basic_mongoose');
+
 // Use native promises
 mongoose.Promise = global.Promise;
 

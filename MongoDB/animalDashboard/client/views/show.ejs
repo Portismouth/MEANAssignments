@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Puppy Dashboard</title>
+</head>
+
+<body>
+    <h1><%=Dog.name%>'s Dashboard</h1>
+    <a href="/">Home</a>
+    <a href="/dog/edit/<%=Dog._id%>">Edit</a>
+    <a href="/dog/delete/<%=Dog._id%>">Delete</a>
+    <hr>
+    <div>
+        <h3>Name:
+            <%=Dog.name%>
+        </h3>
+        <h4>Type:
+            <%=Dog.type%>
+        </h4>
+        <h4>Fav Food:
+            <%=Dog.favorite_food%>
+        </h4>
+        <hr>
+    </div>
+</body>
+
+</html>

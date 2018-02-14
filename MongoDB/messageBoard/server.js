@@ -28,7 +28,7 @@ var messageSchema = new mongoose.Schema({
 var commentSchema = new mongoose.Schema({
     _message: {type: Schema.Types.ObjectId, ref: "Message"},
     name: { type: String, required: [true, "Why no name?"], minlength: [4, "Name must be at least 4 characters."] },
-    text: { type: String, required: [true, "Why no message?"] },
+    text: { type: String, required: [true, "Why no comment?"] },
 }, {timestamps: true});
 
 //Models
@@ -44,7 +44,6 @@ app.get('/', function (req, res) {
         .sort({ createdAt: -1 })
         .populate("comments")
         .exec( function (err, messages) {
-            console.log(messages)
         if (err) {
             console.log("somethin ain't right")
             res.redirect("/")
@@ -98,12 +97,13 @@ app.post("/comment", function (req, res) {
                 if(err){
                     console.log("somethin ain't right");
                     Message.find({})
-                        .populate("comments")
-                        .exec(function (err, messages) {
-                            if (err) {
-                                console.log("somethin ain't right")
-                                res.redirect("/")
-                            } else {
+                    .populate("comments")
+                    .exec(function (err, messages) {
+                        if (err) {
+                            console.log("somethin ain't right========line104")
+                            res.redirect("/")
+                        } else {
+                            console.log(newComment.errors);
                                 res.render("index", { allMessages: messages, errors: newComment.errors })
                             }
                         });

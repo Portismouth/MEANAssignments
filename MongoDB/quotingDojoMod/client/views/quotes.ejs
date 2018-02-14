@@ -1,0 +1,9 @@
+<% for(let x in Quotes) { %> 
+    <h4>
+        <%= Quotes[x].quote %>
+    </h4>
+    <p>
+        Posted by: <%= Quotes[x].user %> on <%= Quotes[x].date %>
+    </p>
+    <hr>
+<%}%>
