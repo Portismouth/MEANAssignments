@@ -15,7 +15,8 @@ module.exports = {
     },
     create: (req, res) => {
         var newTask = new Task({
-            title: req.params.task,
+            title: req.params.title,
+            desc: req.params.desc
         });
         newTask.save((err) => {
             if(err){
@@ -24,5 +25,35 @@ module.exports = {
                 res.redirect("/tasks");
             }
         })
-    }
+    },
+    destroy: (req, res) => {
+        Task.remove({ "_id": req.params.id }, function (err) {
+            console.log(req.params.id);
+            if (err) {
+                console.log("ERRORERRORERROR");
+                res.redirect('/tasks');
+            } else {
+                res.redirect("/tasks");
+            }
+        });
+    },
+    edit: function(req, res){
+        var updateTask = {};
+
+        if (req.params.title) updateTask = req.params.title;
+        if (req.params.desc) updateTask = req.params.desc;
+        if (req.params.completed) updateTask = req.params.completed;
+
+        Task.update({ _id: req.params.id },
+            { $set: updateTask },
+            function (err) {
+                if (err) {
+                    console.log("ERRORERRORERROR");
+                    console.log(err);
+                    res.redirect('/dog/edit/' + req.params.id);
+                } else {
+                    res.redirect("/");
+                }
+            });
+    },
 }
