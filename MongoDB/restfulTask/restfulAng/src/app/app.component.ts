@@ -8,7 +8,6 @@ import { HttpService } from './http.service';
 })
 
 export class AppComponent {
-  title = 'MEAN';
   tasks = [];
 
   constructor(private _httpService: HttpService){
