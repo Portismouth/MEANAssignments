@@ -51,14 +51,13 @@ export class AppComponent implements OnInit {
       gold: this.gold,
       log: this.log
     }
-    console.log(gameToSave);
     this.postGameToService(gameToSave);
   }
 
   postGameToService(gameToSave) {
     let observable = this._httpService.saveGame(gameToSave);
     observable.subscribe(data => {
-      console.log("Got ya!")
+      console.log("Got ya!", data)
     })
   }
 }

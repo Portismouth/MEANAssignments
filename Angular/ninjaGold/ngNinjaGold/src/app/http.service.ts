@@ -6,6 +6,10 @@ export class HttpService {
   constructor(private _http: HttpClient) {};
 
   saveGame(game){
-    return this._http.post('/game', game)
+    return this._http.post('/api/game', game);
+  }
+
+  loadGame(){
+    return this._http.get('/api/game')
   }
 }
