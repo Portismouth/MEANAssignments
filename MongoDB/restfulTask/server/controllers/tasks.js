@@ -2,57 +2,66 @@ var mongoose = require('mongoose');
 var Task = mongoose.model("Task");
 
 module.exports = {
-    all: function(req, res) {
+    all: function (req, res) {
         Task.find({})
-        .sort("createdAt desc")
-        .exec(function(err, tasks) {
-            if(err){
-                res.send("Error retreiving tasks...");
+            .sort("createdAt desc")
+            .exec(function (err, tasks) {
+                if (err) {
+                    res.send("Error retreiving tasks...");
+                } else {
+                    res.send(tasks);
+                }
+            });
+    },
+    getTask: (req, res) => {
+        Task.findById(req.params.id, function (err, task) {
+            if (err) {
+                res.send("Error receiving task");
             } else {
-                res.send(tasks);
+                res.send(task);
             }
-        });
+        })
     },
     create: (req, res) => {
-        var newTask = new Task({
-            title: req.params.title,
-            desc: req.params.desc
-        });
+        var newTask = new Task(req.body);
         newTask.save((err) => {
-            if(err){
+            if (err) {
                 console.log("error creating new task");
             } else {
-                res.redirect("/tasks");
+                res.send(newTask);
             }
         })
     },
     destroy: (req, res) => {
-        Task.remove({ "_id": req.params.id }, function (err) {
-            console.log(req.params.id);
+        console.log("talking to angular");
+        Task.findByIdAndRemove(req.params.id, function (err, task) {
             if (err) {
                 console.log("ERRORERRORERROR");
-                res.redirect('/tasks');
+                res.send("error deleting task")
             } else {
-                res.redirect("/tasks");
+                res.send(task);
             }
         });
     },
-    edit: function(req, res){
-        var updateTask = {};
+    edit: function (req, res) {
+        let updateTask = {};
 
-        if (req.params.title) updateTask = req.params.title;
-        if (req.params.desc) updateTask = req.params.desc;
-        if (req.params.completed) updateTask = req.params.completed;
+        console.log("talking to angular");
 
-        Task.update({ _id: req.params.id },
-            { $set: updateTask },
-            function (err) {
+        if (req.body.title) updateTask.title = req.body.title;
+        if (req.body.desc) updateTask.desc = req.body.desc;
+        if (req.body.completed) updateTask.completed = req.body.completed;
+        // updateTask.updatedAt = Date.now();
+
+        Task.findByIdAndUpdate(req.body.id,
+            updateTask,
+            function (err, task) {
                 if (err) {
                     console.log("ERRORERRORERROR");
                     console.log(err);
-                    res.redirect('/dog/edit/' + req.params.id);
+                    res.send(err);
                 } else {
-                    res.redirect("/");
+                    res.send(task);
                 }
             });
     },

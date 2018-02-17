@@ -1,14 +1,52 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Restful Tasks API
-  </h1>
-</div>
-<h2>All the tasks</h2>
-<ul>
-  <button class="btn btn-primary" (click)="onButtonClick($event)">CLICK ME</button>
-  <li *ngFor="let task of tasks">
-    {{task.title}} - {{task.desc}}. Status: {{task.completed}}
-  </li>
-</ul>
+<html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <title>Ninja Gold</title>
+</head>
+
+<body>
+  <div style="text-align:center">
+    <h1>
+      Restful Tasks API
+    </h1>
+  </div>
+  <h2>All the tasks</h2>
+  <div>
+    <ul>
+      <li *ngFor="let task of tasks" style="list-style:none; border: 2px solid black">
+        <div>
+          <h2>{{task.title}}</h2>
+          <p>{{task.desc}}</p>
+          <button class="btn btn-secondary" (click)="editTask($event, task)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteTask($event, task._id)">Delete</button>
+        </div>
+      </li>
+      <!-- <button class="btn btn-primary" (click)="onButtonClick($event)">CLICK ME</button> -->
+    </ul>
+    <div>
+      <form *ngIf="loadEdit == true" (submit)="onSubmitEdit()">
+        <input type="hidden" name="editTaskForm.id" [(ngModel)]="editTaskForm.id" value="editTaskForm.id" [(ngModel)]="editTaskForm.id"> Title:
+        <input type="text" name="editTaskForm.title" [(ngModel)]="editTaskForm.title" placeholder="editTaskForm.title" [(ngModel)]="editTaskForm.title"> Description:
+        <input type="text" name="editTaskForm.desc" [(ngModel)]="editTaskForm.desc" placeholder="editTaskForm.desc" [(ngModel)]="editTaskForm.desc">
+        <input type="submit" class="btn btn-primary" value="Edit Task" />
+      </form>
+    </div>
+  </div>
+  <h2>Add a New Task</h2>
+  <form (submit)="onSubmitNew()">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p> {{ newTask | json }} </p>
+    Title:
+    <input type="text" name="newTask.title" [(ngModel)]="newTask.title" /> Description:
+    <input type="text" name="newTask.desc" [(ngModel)]="newTask.desc" />
+    <input type="submit" value="Create Task" />
+  </form>
+</body>
+
+</html>

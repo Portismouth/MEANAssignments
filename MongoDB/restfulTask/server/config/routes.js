@@ -3,23 +3,14 @@ var Task = mongoose.model("Task");
 var tasks = require("../controllers/tasks.js");
 
 module.exports = function (app) {
+    //All tasks
+    app.route('/api/task')
+        .get(tasks.all)
+        .post(tasks.create)
 
-    app.route('')
-
-    //GET routes
-    app.get('/tasks', (req, res) => {
-        tasks.all(req, res);
-    });
-
-    //POST Routes
-    app.post('/task/:title/:desc', (req, res) => {
-        tasks.create(req, res);
-    });
-
-    //PUT Routes
-    
-    //DELETE Route
-    app.delete('/task/:id', (req, res) => {
-        tasks.destroy(req, res);
-    })
+    //Individual tasks
+    app.route('/api/task/:id')
+        .get(tasks.getTask)
+        .put(tasks.edit)
+        .delete(tasks.destroy);
 }
