@@ -1,0 +1,18 @@
+<h1>Browse the ledger</h1>
+<h3>Here you can browse all Shinto Coin transactions</h3>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Action</th>
+      <th>Value</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of ledger">
+      <td >{{row.action}}</td>
+      <td >{{row.value}}</td>
+      <td><button class="btn btn-secondary btn-sm">Details</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -10,8 +10,8 @@ var uniqueValidator = require("mongoose-unique-validator")
 
 var userSchema = new mongoose.Schema({
     email: {
-        type: String, 
-        required: [true, "Email address is required."], 
+        type: String,
+        required: [true, "Email address is required."],
         unique: [true, "This user already exists!"],
         validate: {
             validator: function (value) {
@@ -35,7 +35,7 @@ var userSchema = new mongoose.Schema({
         required: [true, "A birthdate is required!"],
         validate: {
             validator: function (value) {
-                if( value >= Date.now){
+                if (value >= Date.now) {
                     return false;
                 }
             },
@@ -48,23 +48,23 @@ var userSchema = new mongoose.Schema({
         minlength: 8,
         maxlength: 32,
         validate: {
-            validator: function ( value ) {
+            validator: function (value) {
                 return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,32}/.test(value);
             },
             message: "Password must contain at least 1 number, uppercase and special character."
         }
     }
-}, {timestamps: true});
+}, { timestamps: true });
 
-userSchema.pre("save", function(next) {
+userSchema.pre("save", function (next) {
     console.log("============= user trying to save===============");
 
     //bcrypt password
     bcrypt.hash(this.password, 10)
         .then(hashedPassword => {
-        console.log("=============hashing=================");
-        this.password = hashedPassword;
-        next();
+            console.log("=============hashing=================");
+            this.password = hashedPassword;
+            next();
         }).catch(error => {
             next();
         });
@@ -77,5 +77,5 @@ userSchema.pre("save", function(next) {
 //     });
 // };
 
-userSchema.plugin(uniqueValidator, { message: "This email is already registered. Try logging in."});
+userSchema.plugin(uniqueValidator, { message: "This email is already registered. Try logging in." });
 mongoose.model("User", userSchema);

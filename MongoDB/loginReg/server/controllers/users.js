@@ -9,7 +9,7 @@ module.exports = {
     register: (req, res) => {
         console.log("===============reached the reg controller=================")
         //passwordConf Validation
-        if(req.body.passwordConf === null){
+        if (req.body.passwordConf === null) {
             var regErrors = [{ message: "" }];
             regErrors[0]['message'] = "Please enter a confirmation password";
         }
@@ -26,17 +26,17 @@ module.exports = {
             password: req.body.password
         });
 
-        newUser.save( function(err){
+        newUser.save(function (err) {
             console.log("======================saving====================")
-            if(err){
-                if(regErrors){
+            if (err) {
+                if (regErrors) {
                     ("======================line33====================")
                     res.render("index", { errors: newUser.errors, regErrors: regErrors })
                 } else {
                     ("======================line36====================")
                     res.render("index", { errors: newUser.errors })
                 }
-            } else if(regErrors){
+            } else if (regErrors) {
                 ("======================line40====================")
                 res.render("index", { errors: regErrors })
             } else {
@@ -61,19 +61,19 @@ module.exports = {
         User.findOne({ email: req.body.email }, function (err, user) {
             if (err) {
                 res.render('index', { errorsLogin: error })
-            } else if (user == null) {
+            } else if (user === null) {
                 console.log("Email is not in our database");
                 res.redirect('/')
             } else {
                 bcrypt.compare(req.body.password, user.password)
-                    .then(function(loggedIn){
+                    .then(function (loggedIn) {
                         console.log("=========login success================")
                         console.log(loggedIn)
                         req.session.userId = user._id;
                         console.log(req.session.userId);
                         res.redirect("/")
-                    })  
-                    .catch(function(loginError){
+                    })
+                    .catch(function (loginError) {
                         console.log("=========login FAIL================")
                         res.redirect("/")
                     });
