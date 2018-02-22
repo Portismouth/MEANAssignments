@@ -1,0 +1,19 @@
+<a [routerLink]="['/home']">Home</a>
+<p>Edit this author:</p>
+<div class="col-6">
+  <div *ngIf="displayErr == true">
+    <div *ngFor="let x of errors" class="alert alert-danger" role="alert">
+      {{x}}
+    </div>
+  </div>
+  <form (submit)="submitEditAuth()" class="form-inline">
+    <input type="hidden" name="editAuthForm.id" value="editAuthForm.id" [(ngModel)]="editAuthForm.id">
+    <label class="sr-only" for="inlineFormInput">First Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="editAuthForm.firstName" placeholder={{author.firstName}}
+      [(ngModel)]="editAuthForm.firstName" >
+    <label class="sr-only" for="inlineFormInput">Last Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder={{author.lastName}} name="editAuthForm.lastName"
+      [(ngModel)]="editAuthForm.lastName">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<a [routerLink]="['/home']">Home</a>
+<p>Add a new author:</p>
+<div class="col-6">
+  <div *ngIf="displayErr == true">
+    <div *ngFor="let x of errors" class="alert alert-danger" role="alert">
+      {{x}}
+    </div>
+  </div>
+  <form (submit)="submitNewAuth()" class="form-inline">
+    <label class="sr-only" for="inlineFormInput">First Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="First Name" name="newAuthForm.firstName" [(ngModel)]="newAuthForm.firstName">
+    <label class="sr-only" for="inlineFormInput">Last Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Last Name" name="newAuthForm.lastName" [(ngModel)]="newAuthForm.lastName">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

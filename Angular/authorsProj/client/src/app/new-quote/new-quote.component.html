@@ -1,0 +1,15 @@
+<a [routerLink]="['/home']">Home</a>
+<p>Add a new quote:</p>
+<div class="col-6">
+  <div *ngIf="displayErr == true">
+    <div *ngFor="let x of errors" class="alert alert-danger" role="alert">
+      {{x}}
+    </div>
+  </div>
+  <form (submit)="submitNewQuote()" class="form-inline">
+    <label class="sr-only" for="inlineFormInput">First Name</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Quote" name="newQuoteForm.text"
+      [(ngModel)]="newQuoteForm.text">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

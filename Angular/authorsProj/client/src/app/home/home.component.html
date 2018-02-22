@@ -1,0 +1,11 @@
+<a [routerLink]="['/new']">Add an author</a>
+<p>We have quotes by:</p>
+<ul>
+  <li *ngFor="let author of authors" style="list-style: none">
+    <div>
+      <h4 style="display: inline-block"><a [routerLink]="['/edit/', author._id]">{{author.firstName}} {{author.lastName}}</a></h4>
+      <button class="btn btn-secondary" [routerLink]="['/quotes/', author._id]">Show Quotes</button>
+      <button class="btn btn-danger" (click)="deleteAuth($event, author._id)">Delete</button>
+    </div>
+  </li>
+</ul>
