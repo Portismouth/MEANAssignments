@@ -34,7 +34,6 @@ export class HttpService {
   }
 
   destroyQuote(info) {
-    return this._http.delete('/api/quotes/' + info.quoteId);
+    return this._http.put('/api/quotes/' + info.authId, info);
   }
-
 }

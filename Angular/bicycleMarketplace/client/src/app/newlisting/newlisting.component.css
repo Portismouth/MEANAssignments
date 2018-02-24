@@ -1,0 +1,22 @@
+.new-listing {
+    background-color: white;
+    border-radius: 4px;
+}
+.ng-invalid {
+
+ }
+.ng-valid { 
+
+}
+.ng-untouched { 
+
+}
+.ng-touched {
+
+ }
+.ng-dirty { 
+
+}
+.ng-pristine { 
+    
+}

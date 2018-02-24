@@ -1,5 +1,3 @@
-
-
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-as-promised");
 var uniqueValidator = require("mongoose-unique-validator")

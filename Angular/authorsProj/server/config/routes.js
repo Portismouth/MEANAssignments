@@ -16,5 +16,5 @@ module.exports = function (app) {
     app.route('/api/quotes/:userId')
         .post(authors.createQuote)
         .put()
-        .delete(authors.deleteQuote)
+        .put(authors.deleteQuote)
 }

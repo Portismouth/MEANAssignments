@@ -98,17 +98,20 @@ module.exports = {
     },
     deleteQuote: function (req, res) {
         console.log("talking to angular");
-        Quote.findByIdAndRemove(req.params.userId, function (err) {
+        console.log(req.body.authId);
+        Author.findById(req.body.authId, function (err, author) {
             if (err) {
                 res.send(err);
             } else {
-                Quote.find({}, function(err, quotes) {
-                    if (err) {
+                console.log(req.body.quoteId);
+                let quote = author.quotes.id(req.body.quoteId).remove();
+                author.save(function (err) {
+                    if (err){
                         res.send(err);
                     } else {
-                        res.send(quotes);
+                        res.send(author.quotes);
                     }
-                });
+                })
             }
         })
     }

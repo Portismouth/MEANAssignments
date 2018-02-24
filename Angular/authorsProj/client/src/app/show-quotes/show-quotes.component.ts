@@ -41,6 +41,7 @@ export class ShowQuotesComponent implements OnInit {
     let observable = this._httpService.destroyQuote(ids);
     observable.subscribe(serverResponse => {
       console.log(serverResponse);
+      this.goHome();
     })
   }
 

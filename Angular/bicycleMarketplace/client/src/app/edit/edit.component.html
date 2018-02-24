@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Edit/Delete Listings</h2>
+  <div class="container-fluid">
+    <div *ngIf="displayErr == true">
+      <div *ngFor="let x of errors" class="alert alert-danger" role="alert">
+        {{x}}
+      </div>
+    </div>
+    <form (submit)="submitListing()">
+      <div class="row new-listing">
+        <div class="col-3">
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input class="form-control" aria-describedby="fileHelp" type="url" name="image" required [(ngModel)]="listing.image" #image="ngModel"
+            />
+            <small id="fileHelp" class="form-text text-muted">Enter nice image of bike</small>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title" required [(ngModel)]="listing.title" #title='ngModel' />
+            <label for="desc">Description</label>
+            <textarea class="form-control" rows="3" name="desc" required maxlength="200" [(ngModel)]="listing.desc" #desc="ngModel">
+            </textarea>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input class="form-control" type="number" name="price" required min="1" [(ngModel)]="listing.price" #price="ngModel">
+            <label for="location">Location</label>
+            <input class="form-control" type="text" name="location" required [(ngModel)]="listing.location" #location="ngModel">
+            <input type="submit" class="btn btn-success" value="Edit">
+            <input type="submit" class="btn btn-danger" value="Delete">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

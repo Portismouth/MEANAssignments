@@ -1,0 +1,20 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/home']">Browse</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" [routerLink]="['/listings']">
+      <strong>My Listings</strong>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Log off</a>
+  </li>
+</ul>
+<div class="container" style="background-color: #DDDDDD; padding: 10px;">
+  <app-newlisting></app-newlisting>
+</div>
+<br>
+<div class="container" style="background-color: #DDDDDD; padding: 10px;">
+  <app-edit *ngFor="let listing of listings" [listing]="listing"></app-edit>
+</div>

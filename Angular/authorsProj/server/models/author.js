@@ -7,9 +7,7 @@ var quoteSchema = new mongoose.Schema({
         required: [true, "Please enter a quote!"],
         minlength: [3, "Quote must be at least 3 characters!"]
     },
-    meta: {
-        votes: Number
-    }
+    votes: Number
 });
 
 var authorSchema = new mongoose.Schema({
